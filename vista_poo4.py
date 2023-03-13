@@ -104,6 +104,12 @@ class VistaPrincipal(tk.Frame):
         )
         self.boton_limpiar.grid(row=0, column=2, padx=10, pady=10)
 
+        # botón modificar
+        self.boton_modificar = tk.Button(
+            self.botones_frame, text="Modificar", command=lambda: self.modificar()
+        )
+        self.boton_modificar.grid(row=0, column=3, padx=10, pady=10)
+
         # TREEVIEW
         self.tabla = ttk.Treeview(self.root)
         self.tabla["columns"] = ("col1", "col2", "col3", "col4")
@@ -116,8 +122,8 @@ class VistaPrincipal(tk.Frame):
         # Crear los Títulos (Headings)
         self.tabla.heading("#0", text="Id")
         self.tabla.heading("col1", text="Lugar")
-        self.tabla.heading("col2", text="Fecha")
-        self.tabla.heading("col3", text="Importe")
+        self.tabla.heading("col2", text="Importe")
+        self.tabla.heading("col3", text="Fecha")
         self.tabla.heading("col4", text="Descripción")
 
         self.tabla.grid(row=5, column=0, columnspan=5, padx=10, pady=10)
@@ -137,5 +143,11 @@ class VistaPrincipal(tk.Frame):
     def limpiar(self,):
         self.objeto.limpiar(self.lugar, self.fecha, self.importe, self.descripcion)
 
+    """def modificar(self,):
+        self.objeto.modificar(
+            self.lugar, self.fecha, self.importe, self.descripcion, self.tabla
+        )"""
+
     def actualizar(self,):
         self.objeto.actualizar_tabla(self.tabla)
+
