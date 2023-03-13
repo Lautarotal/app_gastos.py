@@ -81,11 +81,26 @@ class motor:
 
     # Función limpiar formulario
 
-    def limpiar(self, fecha, lugar, importe, descripcion):
+    def limpiar(self, lugar, fecha, importe, descripcion):
         lugar.delete(0, END)
         fecha.delete(0, END)
         importe.delete(0, END)
         descripcion.delete(0, END)
+
+    # Funcion modificar
+    """def modificar(self, lugar, fecha, importe, descripcion, tabla):
+        item_seleccionado = tabla.focus()
+        mi_id = tabla.item(item_seleccionado)
+        connection_db = self.conexion()
+
+        cursor = connection_db.cursor()
+        sql = "UPDATE gastos SET (lugar=?, fecha=?, importe=?, descripcion=? WHERE id=?"
+        data = (lugar, fecha, importe, descripcion, mi_id)
+        cursor.execute(sql, data)
+        connection_db.commit()
+        print(sql, data)
+
+        self.actualizar_tabla(tabla)"""
 
     # ----------------------------------------------------------------------
     # FUNCIONES DE NOTIFICACIONES
@@ -96,3 +111,4 @@ class motor:
 
     def alta_correcta(self,):
         showinfo("Éxito", "Se guardó la información")
+
