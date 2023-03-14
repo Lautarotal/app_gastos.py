@@ -64,11 +64,13 @@ class motor:
                 # self.alta_correcta()
             else:
                 self.alta_error()
-
     # Función Borrar
     def borrar(self, tabla):
         valor = tabla.selection()
+        print(valor)
         item = tabla.item(valor)
+        print(item)
+        print(item["text"])
         mi_id = item["text"]
         connection_db = self.conexion()
         cursor = connection_db.cursor()
@@ -76,7 +78,7 @@ class motor:
         sql = "DELETE from gastos WHERE id = ?;"
         cursor.execute(sql, data)
         connection_db.commit()
-        # tabla.delete(valor)
+        tabla.delete(valor)
         self.actualizar_tabla(tabla)
 
     # Función limpiar formulario
