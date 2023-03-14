@@ -94,7 +94,7 @@ class VistaPrincipal(tk.Frame):
 
         # botón borrar
         self.boton_borrar = tk.Button(
-            self.botones_frame, text="Eliminar Registro", command=lambda: self.borrar()
+            self.botones_frame, text="Eliminar Registro", command=lambda: self.baja()
         )
         self.boton_borrar.grid(row=0, column=1, padx=10, pady=10)
 
